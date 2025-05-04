@@ -1,0 +1,28 @@
+[project]
+name = "llm-video-frames"
+version = "0.1"
+description = "LLM plugin to turn a video into individual frames"
+readme = "README.md"
+authors = [{name = "Simon Willison"}]
+license = "Apache-2.0"
+classifiers = []
+requires-python = ">=3.9"
+dependencies = [
+    "llm"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+Homepage = "https://github.com/simonw/llm-video-frames"
+Changelog = "https://github.com/simonw/llm-video-frames/releases"
+Issues = "https://github.com/simonw/llm-video-frames/issues"
+CI = "https://github.com/simonw/llm-video-frames/actions"
+
+[project.entry-points.llm]
+video_frames = "llm_video_frames"
+
+[project.optional-dependencies]
+test = ["pytest"]
