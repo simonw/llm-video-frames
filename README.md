@@ -13,9 +13,46 @@ Install this plugin in the same environment as [LLM](https://llm.datasette.io/).
 ```bash
 llm install llm-video-frames
 ```
+Requires `ffmpeg` installed and available on the system `PATH`. On macOS, you can install it using Homebrew:
+```bash
+brew install ffmpeg
+```
+
 ## Usage
 
-Usage instructions go here.
+The `llm-video-frames` plugin provides a [fragment loader](https://llm.datasette.io/en/stable/fragments.html#using-fragments-from-plugins) that extracts individual frames from a video file using `ffmpeg`.
+
+You can use the `video-frames:` fragment prefix to turn a video into a series of image attachments.
+
+### Fragment syntax
+
+```
+video-frames:<path>?fps=N&timestamps=1
+```
+
+- `<path>`: Path to the video file accessible to the environment where LLM runs.
+- `fps=N`: (optional) Number of frames per second to extract. Defaults to `1` if omitted.
+- `timestamps=1`: (optional) If set to `1`, overlays the filename and timestamp on each extracted frame in the bottom-right corner.
+
+### Examples
+
+Extract 1 frame per second (default) from `video.mp4`:
+
+```bash
+llm -f video-frames:video.mp4 'describe the key scenes in this video'
+```
+
+Extract 5 frames per second:
+
+```bash
+llm -f 'video-frames:video.mp4?fps=5' 'summarize the video'
+```
+
+Extract 2 frames per second with filename and timestamps overlayed on frames:
+
+```bash
+llm -f 'video-frames:video.mp4?fps=2&timestamps=1' 'list notable events with timestamps'
+```
 
 ## Development
 
