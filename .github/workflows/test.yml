@@ -26,7 +26,6 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -e '.[test]'
-        pip install https://github.com/simonw/llm/archive/e02863c1cae02c8c32e4fc9c3365e02eef1faf4c.zip
     - name: Run tests
       run: |
         python -m pytest -vv
