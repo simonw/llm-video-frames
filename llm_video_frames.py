@@ -21,7 +21,7 @@ def video_frames_loader(argument: str):
     parts = urlparse(argument)
     video_path = parts.path
     params = parse_qs(parts.query)
-    fps = int(params.get("fps", ["1"])[0])
+    fps = float(params.get("fps", ["1"])[0])
     timestamps = params.get("timestamps", ["0"])[0] in ("1", "true", "True")
     if not os.path.exists(video_path):
         raise ValueError(f"Video file not found: {video_path}")

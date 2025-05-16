@@ -66,6 +66,7 @@ def test_default_fps_produces_two_frames(video_file_path):
     [
         (1, 2),
         (2, 5),
+        (0.5, 1),
     ],
 )
 def test_fps_parameter_changes_frame_count(video_file_path, fps, expected_count):

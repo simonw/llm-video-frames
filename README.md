@@ -31,7 +31,7 @@ video-frames:<path>?fps=N&timestamps=1
 ```
 
 - `<path>`: Path to the video file accessible to the environment where LLM runs.
-- `fps=N`: (optional) Number of frames per second to extract. Defaults to `1` if omitted.
+- `fps=N`: (optional) Number of frames per second to extract. Defaults to `1` if omitted. Float values like `0.2` can be used as well.
 - `timestamps=1`: (optional) If set to `1`, overlays the filename and timestamp on each extracted frame in the bottom-right corner.
 
 ### Examples
